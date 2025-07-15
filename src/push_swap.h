@@ -8,6 +8,7 @@
 # include <string.h>
 # include <strings.h>
 # include <unistd.h>
+#include <stdarg.h>
 
 void	twothree_sort(int *nb, int ac);
 void	ft_ra(int *nb, int ac);
