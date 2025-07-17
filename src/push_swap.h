@@ -35,10 +35,10 @@ void	ft_pa(int *a, int *b, int *size_a, int *size_b);
 char	**ft_split(const char *s, char c);
 char	*ft_strdup(const char *src);
 char	*ft_strjoin(char const *s1, char const *s2);
-int		*ft_conversion(int *a, char **argv, int ac);
+void	ft_conversion(int *a, char **argv, int ac);
 int		ft_atoi(const char *str);
 int		ra_themin(int *nb, int ac);
 int		max_bits(int *nb, int ac);
-int		*normaliz_tab(int *nb, int ac);
+void	normaliz_tab(int *nb, int ac);
 void	radix(int *nb, int *nb2, int *size_a, int *size_b);
 #endif

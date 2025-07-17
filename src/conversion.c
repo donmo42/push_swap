@@ -1,17 +1,22 @@
 #include "./push_swap.h"
 
-int	*ft_conversion(int *a, char **argv, int ac)
+void	ft_conversion(int *a, char **argv, int ac)
 {
 	char	**stockargv;
 	char	*jointargv;
+	char	*tmp;
 	int		i;
 
 	i = 1;
 	jointargv = ft_strdup(" ");
 	while (i < ac)
 	{
-		jointargv = ft_strjoin(jointargv, argv[i]);
-		jointargv = ft_strjoin(jointargv, " ");
+		tmp = ft_strjoin(jointargv, argv[i]);
+		free(jointargv);
+		jointargv = tmp;
+		tmp = ft_strjoin(jointargv, " ");
+		free(jointargv);
+		jointargv = tmp;
 		i++;
 	}
 	stockargv = ft_split(jointargv, ' ');
@@ -23,8 +28,8 @@ int	*ft_conversion(int *a, char **argv, int ac)
 		i++;
 	}
 	free(stockargv);
-	return (a);
 }
+
 int	ra_themin(int *nb, int ac)
 {
 	int	lownbr;
@@ -41,33 +46,35 @@ int	ra_themin(int *nb, int ac)
 	return (lownbr);
 }
 
-int	*normaliz_tab(int *nb, int ac)
+void	normaliz_tab(int *nb, int ac)
 {
 	int	i;
 	int	j;
 	int	*newnb;
 	int	rank;
 
-	i = 0;
+	i = -1;
 	rank = 0;
 	newnb = malloc(ac * sizeof(int));
 	if (!newnb)
-		return (NULL);
-	while (i < ac)
+		return ;
+	while (++i < ac)
 	{
-		j = 0;
+		j = -1;
 		rank = 0;
-		while (j < ac)
+		while (++j < ac)
 		{
 			if (nb[i] > nb[j])
 				rank++;
-			j++;
 		}
 		newnb[i] = rank;
-		i++;
 	}
-	return (newnb);
+	i = -1;
+	while (++i < ac)
+		nb[i] = newnb[i];
+	free(newnb);
 }
+
 int	max_bits(int *nb, int ac)
 {
 	int i;
