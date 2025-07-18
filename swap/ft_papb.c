@@ -1,3 +1,5 @@
+#include "../src/push_swap.h"
+
 void ft_pb(int *a, int *b, int *size_a, int *size_b)
 {
     if (*size_a == 0)
@@ -15,6 +17,8 @@ void ft_pb(int *a, int *b, int *size_a, int *size_b)
 
     (*size_a)--;
     (*size_b)++;
+
+	ft_printf("pb\n");
 }
 
 void ft_pa(int *a, int *b, int *size_a, int *size_b)
@@ -34,4 +38,5 @@ void ft_pa(int *a, int *b, int *size_a, int *size_b)
 
     (*size_b)--;
     (*size_a)++;
+	ft_printf("pa\n");
 }
