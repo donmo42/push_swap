@@ -46,7 +46,7 @@ int	ra_themin(int *nb, int ac)
 	return (lownbr);
 }
 
-void	normaliz_tab(int *nb, int ac)
+int	*normaliz_tab(int *nb, int ac)
 {
 	int	i;
 	int	j;
@@ -55,9 +55,9 @@ void	normaliz_tab(int *nb, int ac)
 
 	i = -1;
 	rank = 0;
-	newnb = malloc(ac * sizeof(int));
+	newnb = malloc(ac * sizeof(int)); //malloc autorisé?
 	if (!newnb)
-		return ;
+		return (0) ;
 	while (++i < ac)
 	{
 		j = -1;
@@ -69,10 +69,8 @@ void	normaliz_tab(int *nb, int ac)
 		}
 		newnb[i] = rank;
 	}
-	i = -1;
-	while (++i < ac)
-		nb[i] = newnb[i];
-	free(newnb);
+	return (newnb);
+	
 }
 
 int	max_bits(int *nb, int ac)

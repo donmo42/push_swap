@@ -19,6 +19,9 @@ void	ft_ra(int *nb, int ac)
 	ft_printf("ra\n");
 }
 
+
+
+
 void	ft_rb(int *nb, int ac)
 {
 	int	tmp;

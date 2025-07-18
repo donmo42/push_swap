@@ -39,6 +39,6 @@ void	ft_conversion(int *a, char **argv, int ac);
 int		ft_atoi(const char *str);
 int		ra_themin(int *nb, int ac);
 int		max_bits(int *nb, int ac);
-void	normaliz_tab(int *nb, int ac);
+int	*normaliz_tab(int *nb, int ac);
 void	radix(int *nb, int *nb2, int *size_a, int *size_b);
 #endif
