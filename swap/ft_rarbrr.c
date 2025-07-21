@@ -19,9 +19,6 @@ void	ft_ra(int *nb, int ac)
 	ft_printf("ra\n");
 }
 
-
-
-
 void	ft_rb(int *nb, int ac)
 {
 	int	tmp;
@@ -38,7 +35,7 @@ void	ft_rb(int *nb, int ac)
 		}
 		nb[ac] = tmp;
 	}
-	ft_printf("rb \n");
+	ft_printf("rb\n");
 }
 
 void	ft_rr(int *nb, int ac)

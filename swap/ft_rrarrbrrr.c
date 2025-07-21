@@ -1,3 +1,4 @@
+
 #include "../src/push_swap.h"
 
 void	ft_rra(int *nb, int ac)
@@ -5,7 +6,7 @@ void	ft_rra(int *nb, int ac)
 	int	tmp;
 	int	i;
 
-	if (ac - 1 > 1)
+	if (ac  > 1)
 	{
 		tmp = nb[ac - 1];
 		i = ac - 1;

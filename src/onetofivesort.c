@@ -20,6 +20,8 @@ void	twothree_sort(int *nb, int ac)
 			ft_rra(nb, ac);
 		else if (nb[0] > nb[1] && nb[1] < nb[2])
 			ft_ra(nb, ac);
+		else if (nb[0] > nb[1] && nb[0] < nb[2])
+			ft_rra(nb, ac);
 		else if (nb[0] > nb[1] && nb[1] > nb[2])
 		{
 			ft_sa(nb, ac);
