@@ -13,9 +13,7 @@ void	radix(int *nb, int *nb2, int *size_a, int *size_b)
 	i = 0;
 	nb  = normaliz_tab(nb, *size_a);
 	max_bit = max_bits(nb, *size_a);
-	printf("=== AVANT RADIX ===\n");
-	for (int i = 0; i < *size_a; i++)
-		printf("a[%d] = %d\n", i, nb[i]);
+	
 
 	while (i < max_bit)
 	{
@@ -33,8 +31,6 @@ void	radix(int *nb, int *nb2, int *size_a, int *size_b)
 			ft_pa(nb, nb2, size_a, size_b);
 		i++;
 	}
-	printf("=== APRÈS RADIX ===\n");
-	for (int i = 0; i < *size_a; i++)
-		printf("a[%d] = %d\n", i, nb[i]);
+	
 
 }

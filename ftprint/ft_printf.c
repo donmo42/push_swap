@@ -1,4 +1,6 @@
 #include "../src/push_swap.h"
+#include <stdarg.h>
+#include <unistd.h> 
 
 int	checkx(const char x, va_list ap)
 {

@@ -1,3 +1,4 @@
+
 NAME 		= 	push_swap
 CC 			= 	cc
 CFLAGS 		= 	-g3 -Wall -Wextra -Werror
@@ -10,10 +11,10 @@ PRINT_DIR = ./ftprint
 PRINT = ft_printf.c ft_putchar.c ft_puthexamaj.c ft_puthexamin.c ft_putnbr.c ft_putpointer.c ft_putstr.c  ft_putunbr.c ft_strlen.c 
 
 # Fichiers sources utils
-SRC= onetofivesort.c fivetocentsort.c push_swap.c  conversion.c
+SRC= onetofivesort.c fivetocentsort.c push_swap.c  conversion.c utils.c
 
 # Fichiers sources librairie
-LIB = ft_memcpy.c ft_strdup.c ft_strjoin.c ft_split.c ft_atoi.c
+LIB = ft_memcpy.c ft_strdup.c ft_strjoin.c ft_split.c ft_atoi.c ft_isdigit.c ft_error.c
 
 # Fichiers sources swap
 SWAP = ft_papb.c ft_rarbrr.c ft_rrarrbrrr.c  ft_sasbss.c

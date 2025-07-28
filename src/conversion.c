@@ -1,15 +1,17 @@
 #include "./push_swap.h"
 
-void	ft_conversion(int *a, char **argv, int ac)
+char	**ft_conversion(char **argv, int *ac)
 {
 	char	**stockargv;
 	char	*jointargv;
 	char	*tmp;
 	int		i;
+	int		x;
 
 	i = 1;
+	x = *ac;
 	jointargv = ft_strdup(" ");
-	while (i < ac)
+	while (i < x)
 	{
 		tmp = ft_strjoin(jointargv, argv[i]);
 		free(jointargv);
@@ -20,14 +22,11 @@ void	ft_conversion(int *a, char **argv, int ac)
 		i++;
 	}
 	stockargv = ft_split(jointargv, ' ');
-	free(jointargv);
 	i = 0;
 	while (stockargv[i])
-	{
-		a[i] = ft_atoi(stockargv[i]);
 		i++;
-	}
-	free(stockargv);
+	*ac = i;
+	return (free(jointargv), stockargv);
 }
 
 int	ra_themin(int *nb, int ac)
@@ -55,9 +54,9 @@ int	*normaliz_tab(int *nb, int ac)
 
 	i = -1;
 	rank = 0;
-	newnb = malloc(ac * sizeof(int)); //malloc autorisé?
+	newnb = malloc(ac * sizeof(int));
 	if (!newnb)
-		return (0) ;
+		return (0);
 	while (++i < ac)
 	{
 		j = -1;
@@ -70,13 +69,12 @@ int	*normaliz_tab(int *nb, int ac)
 		newnb[i] = rank;
 	}
 	return (newnb);
-	
 }
 
 int	max_bits(int *nb, int ac)
 {
-	int i;
-	int x;
+	int	i;
+	int	x;
 
 	i = 0;
 	x = 0;
