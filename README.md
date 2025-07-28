@@ -1,22 +1,23 @@
 🧩 Projet Push_Swap – Mon approche
 Le but est simple : on dispose de deux piles, A et B. La pile A reçoit une liste de nombres aléatoires, et notre mission est de trier cette pile du plus petit au plus grand… mais avec des actions très limitées !
 
-⚙️ Les seules actions possibles :
-🔁 Swap :
+ Les seules actions possibles :
+ Swap :
 sa, sb, ss → échange les deux premiers éléments de la pile A, B ou les deux en même temps.
-
-📥 Push :
+Push :
 pa, pb → déplace le haut d'une pile vers l'autre.
 
-🔄 Rotate :
+Rotate :
 ra, rb, rr → fait monter tous les éléments d’un cran (pile A, B ou les deux).
 
-🔃 Reverse Rotate :
+Reverse Rotate :
 rra, rrb, rrr → fait descendre tous les éléments d’un cran.
 
 🔧 On doit tout coder nous-même, y compris la gestion des piles, les mouvements et les algorithmes de tri.
 📸 Voir les visuels explicatifs ci-dessous
-<img src='img/1.webp'>
+<img src='img/2.webp'>
+<img src='img/3.webp'>
+<img src='img/4.webp'>
 
 🔢 Gestion des petits cas : de 1 à 5 nombres
 J’ai d’abord créé une fonction spécifique pour gérer les cas simples : 2 à 5 éléments.
@@ -24,7 +25,7 @@ J’ai d’abord créé une fonction spécifique pour gérer les cas simples : 2
 🔹 Cas de 3 nombres :
 Il n’existe que 5 combinaisons possibles. J’ai analysé chaque cas pour créer une solution optimale.
 📸 Voir l’image ci-dessous pour les cas de 3 éléments
-<img src='img'>
+<<img src='img/1.webp'>
 
 🔸 Cas de 5 nombres :
 On est limité à 12 actions maximum, sinon la validation échoue.
@@ -38,7 +39,7 @@ Je replace les 2 éléments depuis B, au bon endroit.
 
 Je vais maintenant illustrer ça avec le cas [1, 5, 2, 4, 3] pour montrer comment ça fonctionne.
 📸 Image explicative ci-dessous
-<img src='img'>
+<img src='img/6.webp'>
 
 🚀 Gestion des cas de 6 à 1000 éléments – Radix Sort
 Pour les entrées plus grandes (de 6 jusqu’à 1000 nombres), j’ai choisi d’implémenter l’algorithme Radix sort, une méthode simple, rapide, et surtout bien adaptée aux contraintes du projet Push_swap.
