@@ -1,79 +1,93 @@
-🧩 Projet Push_Swap – Mon approche
-Le but est simple : on dispose de deux piles, A et B. La pile A reçoit une liste de nombres aléatoires, et notre mission est de trier cette pile du plus petit au plus grand… mais avec des actions très limitées !
+# push_swap
 
- Les seules actions possibles :
- Swap :
-sa, sb, ss → échange les deux premiers éléments de la pile A, B ou les deux en même temps.
-Push :
-pa, pb → déplace le haut d'une pile vers l'autre.
+`push_swap` est un projet de l’école 42. Objectif : **trier une pile d'entiers en utilisant un nombre minimal d'opérations prédéfinies**.
 
-Rotate :
-ra, rb, rr → fait monter tous les éléments d’un cran (pile A, B ou les deux).
+## 🎯 Objectif
 
-Reverse Rotate :
-rra, rrb, rrr → fait descendre tous les éléments d’un cran.
+On dispose de deux piles : `A` (remplie initialement avec des nombres aléatoires) et `B` (vide).  
+Le but : **trier la pile A dans l'ordre croissant** en n’utilisant qu’un ensemble limité d’instructions.
 
-🔧 On doit tout coder nous-même, y compris la gestion des piles, les mouvements et les algorithmes de tri.
-📸 Voir les visuels explicatifs ci-dessous
+## 🛠️ Les opérations autorisées
+
+### Swap :
+- `sa`, `sb`, `ss` : échange les deux premiers éléments de A, B ou les deux.
+
+### Push :
+- `pa`, `pb` : pousse le haut d’une pile vers l’autre.
+
+### Rotate :
+- `ra`, `rb`, `rr` : fait monter tous les éléments d’un cran (déplace le haut vers le bas).
+
+### Reverse Rotate :
+- `rra`, `rrb`, `rrr` : fait descendre tous les éléments d’un cran (déplace le bas vers le haut).
+
 <img src='img/2.webp'>
 <img src='img/3.webp'>
 <img src='img/4.webp'>
+## 🔹 Gestion des petits cas (1 à 5 éléments)
 
-🔢 Gestion des petits cas : de 1 à 5 nombres
-J’ai d’abord créé une fonction spécifique pour gérer les cas simples : 2 à 5 éléments.
+### ✅ Cas de 3 éléments  
+Seulement **5 combinaisons possibles**. J’ai analysé chaque situation et implémenté une **solution optimale**.
 
-🔹 Cas de 3 nombres :
-Il n’existe que 5 combinaisons possibles. J’ai analysé chaque cas pour créer une solution optimale.
-📸 Voir l’image ci-dessous pour les cas de 3 éléments
-<<img src='img/1.webp'>
+📸 Illustration :
 
-🔸 Cas de 5 nombres :
-On est limité à 12 actions maximum, sinon la validation échoue.
-Ma stratégie :
 
-Je pousse les 2 plus petits éléments dans la pile B.
+<img src='img/1.webp'>
 
-Je trie les 3 restants dans la pile A (comme pour le cas de 3).
+### ✅ Cas de 5 éléments  
+Limite : **12 opérations maximum**, sinon la vérification échoue.
 
-Je replace les 2 éléments depuis B, au bon endroit.
+**Stratégie :**
+1. Pousser les **2 plus petits** éléments dans la pile B.
+2. Trier les **3 restants** dans A (comme pour le cas à 3).
+3. **Replacer les 2 éléments** depuis B au bon endroit dans A.
 
-Je vais maintenant illustrer ça avec le cas [1, 5, 2, 4, 3] pour montrer comment ça fonctionne.
-📸 Image explicative ci-dessous
+📸 Exemple : tri de `[1, 5, 2, 4, 3]`  
 <img src='img/6.webp'>
 
-🚀 Gestion des cas de 6 à 1000 éléments – Radix Sort
-Pour les entrées plus grandes (de 6 jusqu’à 1000 nombres), j’ai choisi d’implémenter l’algorithme Radix sort, une méthode simple, rapide, et surtout bien adaptée aux contraintes du projet Push_swap.
+## 🚀 Cas généraux (6 à 1000 éléments) – Radix Sort
 
-🧠 Pourquoi Radix ?
-Il fonctionne très bien avec des opérations binaires.
+### 💡 Pourquoi le choix de Radix ?
+- Rapide et adapté à de grands volumes.
+- Fonctionne en binaire, parfait pour les opérations limitées du projet.
+- Ne nécessite pas de comparaisons directes.
 
-Il est non-comparatif et exploite les bits pour trier.
+### 🔧 Étapes de l'algorithme
 
-Il peut être facilement adapté avec les actions autorisées du projet.
+#### 1. `normalize_tab` – Normalisation des données  
+Chaque nombre est remplacé par **son indice** dans le tableau trié.  
+Ex : `[42, 12, 80]` devient `[1, 0, 2]`.
 
-🔧 Les étapes principales de mon algo
-1. normaliz_tab
-La première étape consiste à normaliser les valeurs.
-L’idée : remplacer chaque nombre par son indice dans la version triée du tableau.
+#### 2. Calcul du nombre de bits  
+Permet de savoir combien de passes seront nécessaires pour trier tous les éléments en binaire.
 
-Exemple : [42, 12, 80] devient [1, 0, 2]
-Cela facilite le tri binaire car on travaille sur une base de 0 à n-1.
-
-2. Récupérer le plus grand bit
-Je calcule combien de bits il faut pour représenter le plus grand nombre normalisé.
-Cela détermine combien de passes on devra faire avec Radix.
-
-3. Appliquer le Radix sort
+#### 3. Tri avec Radix  
 Pour chaque bit (du moins significatif au plus significatif) :
+- Pousser dans B les éléments dont le bit courant = 0.
+- Laisser dans A ceux dont le bit = 1.
+- Puis tout **rebasculer dans A**.
 
-Je pousse dans la pile B tous les nombres où le bit courant est à 0.
+On répète l’opération pour chaque bit.
 
-Je laisse les autres dans la pile A.
+📘 Tutoriel illustré ici :  
+🔗 [Push Swap Tutorial – Medium](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
 
-Puis je remets tout dans la pile A.
 
-Je répète l’opération pour chaque bit.
 
-📘 Pour une explication visuelle complète, tu peux consulter la page dont je me suis inspiré pour cet algo.
-Tout est détaillé et bien illustré : normaliz_tab
-🔗 https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
+
+
+
+### Compilation
+```bash
+
+make
+
+./push_swap 3 2 1
+
+Vérification avec le checker
+
+./push_swap 3 2 1 | ./checker 3 2 1
+
+
+./push_swap 3 2 1 | wc -l
+
