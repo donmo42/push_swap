@@ -16,7 +16,7 @@ rra, rrb, rrr → fait descendre tous les éléments d’un cran.
 
 🔧 On doit tout coder nous-même, y compris la gestion des piles, les mouvements et les algorithmes de tri.
 📸 Voir les visuels explicatifs ci-dessous
-<img src='img1 à img4'>
+<img src='img/1.webp'>
 
 🔢 Gestion des petits cas : de 1 à 5 nombres
 J’ai d’abord créé une fonction spécifique pour gérer les cas simples : 2 à 5 éléments.
